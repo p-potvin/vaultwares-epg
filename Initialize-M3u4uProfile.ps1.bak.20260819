@@ -1,0 +1,3 @@
+$root = Join-Path $env:LOCALAPPDATA 'VaultWares\M3U4UAutomation\ChromeProfile'
+New-Item -ItemType Directory -Path $root -Force | Out-Null
+Start-Process 'C:\Program Files\Google\Chrome\Application\chrome.exe' -ArgumentList "--user-data-dir=`"$root`"", '--profile-directory=Default', 'https://m3u4u.com/playlists'
