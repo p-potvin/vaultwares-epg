@@ -28,4 +28,4 @@ $action = New-ScheduledTaskAction -Execute 'conhost.exe' -Argument "--headless p
 $triggers = @((New-ScheduledTaskTrigger -AtStartup), (New-ScheduledTaskTrigger -AtLogOn))
 $principal = New-ScheduledTaskPrincipal -UserId 'SYSTEM' -LogonType ServiceAccount -RunLevel Highest
 $settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Minutes 2) -MultipleInstances IgnoreNew -StartWhenAvailable:$false
-Register-ScheduledTask -TaskName 'VaultWaresEPGEnsure' -Action $action -Trigger $triggers -Principal $principal -Settings $settings -Force | Out-Null
+Register-ScheduledTask -TaskName 'VaultWaresEPGEnsure' -TaskPath '\VaultWares\' -Action $action -Trigger $triggers -Principal $principal -Settings $settings -Force | Out-Null
